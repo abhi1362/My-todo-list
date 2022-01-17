@@ -1,0 +1,14 @@
+.main-div{
+    margin-top: 8rem;
+}
+.add-items input{
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+.plus-icon{
+    position: relative;
+    right: 1.5rem;
+    top: 1px;
+}
