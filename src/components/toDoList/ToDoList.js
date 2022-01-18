@@ -23,8 +23,10 @@ const ToDoList = () =>{
         //     name: ''
         // }
         // console.log(newItem.id)
-        setItemArray([...itemArray,inputItem]);
-        setInputItem('');
+        if(inputItem){
+            setItemArray([...itemArray,inputItem]);
+            setInputItem('');
+        }
     }
     const deleteItem = (id) =>{
         console.log('delete');
