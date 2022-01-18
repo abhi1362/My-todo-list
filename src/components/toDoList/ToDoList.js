@@ -1,14 +1,21 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import todo from '../../assets/to-do-icon.png';
 import './ToDoList.css';
 import ShowItem from '../addItem/ShowItem.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
+const getLocalItems = () =>{
+    const lists = localStorage.getItem('lists');
+    if(lists)
+        return JSON.parse(localStorage.getItem('lists'));
+    else 
+        return [];
+}
 
 const ToDoList = () =>{
     const [inputItem , setInputItem] = useState('');
-    const [itemArray , setItemArray] = useState([]);
+    const [itemArray , setItemArray] = useState(getLocalItems());
     const addItems = () =>{
         // console.log('added');
         // const newItem = {
@@ -26,6 +33,9 @@ const ToDoList = () =>{
         })
         setItemArray(updatedItem);
     }
+    useEffect(() =>{
+        localStorage.setItem('lists', JSON.stringify(itemArray));
+    },[itemArray])
     return (
         <>
            <div className='main-div'>
@@ -35,7 +45,7 @@ const ToDoList = () =>{
                         <figcaption>Add your list here ...</figcaption>
                     </figure>
                     <div className='add-items'>
-                        <input type='text' placeholder="Add items..." value={inputItem} onChange={(e) => setInputItem(e.target.value)}/>
+                        <input type='text' placeholder="Add items..." value={inputItem} onChange={(e) => setInputItem(e.target.value)} onKeyPress={e => e.key === 'Enter' ? addItems() : null }/>
                         <FontAwesomeIcon icon={faPlus} title='Add Item' className='plus-icon' onClick={addItems}/>
                     </div>
                 </div>
