@@ -16,12 +16,109 @@
 }
 .delete-icon{
     position: relative;
-    top: 15px;
+    top: 24px;
     color: #d02b11;
     cursor: pointer;
+}
+.edit-icon{
+    position: relative;
+    top: 24px;
+    right: 10px;
+    color: #1c7e16;
+    cursor: pointer;
+}
+.date-time-title{
+    font-weight: bold;
+}
+.date-time{
+    font-size: x-small;
+    position: relative;
+    right: 33px;
+    top: 1px;
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.heading-div{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 6px;
+}
+.disable-each-item{
+    opacity: 0.6;
+    pointer-events: none;
+}
+.heading-div-child1 {
+    display: flex;
+}
+.heading-div-child2 {
+    position: relative;
+    bottom: 6px;
+}
+input[type="checkbox"] {
+    padding: 20px;
+    margin-right: 8px;
+    align-self: center;
+    width: 25px;
+    height: 25px;
+}
+.completed-task{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.strike{
+    position: relative;
+    cursor: not-allowed;
+    /* pointer-events: none; */
+    opacity: 0.6;
+}
+.strike::after {
+    content: ' ';
+    position: absolute;
+    top: 58%;
+    left: 6px;
+    width: calc(100% - 39px);
+    height: 0.8px;
+    background: rgb(218 15 15);
+    cursor: not-allowed;
+}
+@media (max-width: 559px) and (min-width: 501px) {
+    .delete-icon{
+        top: 9px;
+        right: 7px;
+    }
+    .edit-icon{
+        right: 30px;
+    }
 }
 @media (max-width: 500px){
     .each-item{
         width: 80vw;
+    }
+}
+@media (max-width: 350px){
+    .delete-icon{
+        top: 9px;
+    }
+    .edit-icon{
+        right: 24px;
+    }
+}
+@media (max-width: 325px){
+    .delete-icon{
+        right: 14px;
+    }
+    .edit-icon{
+        right: 40px;
+    }
+}
+@media (max-width: 310px){
+    .delete-icon{
+        right: 36px;
+    }
+    .edit-icon{
+        right: 60px;
     }
 }
