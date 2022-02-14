@@ -86,7 +86,7 @@ const ToDoList = () =>{
                         <figcaption>Add your list here ...</figcaption>
                     </figure>
                     <div className='add-items'>
-                        <input type='text' placeholder="Add items..." value={inputItem} onChange={(e) => setInputItem(e.target.value)} onKeyPress={e => e.key === 'Enter' ? addItems() : null }/>
+                        <input type='text' placeholder="Add items..." maxLength='50' value={inputItem} onChange={(e) => setInputItem(e.target.value)} onKeyPress={e => e.key === 'Enter' ? addItems() : null }/>
                         {
                             toggleButton ? <FontAwesomeIcon icon={faPlus} title='Add Item' className='plus-icon' onClick={addItems}/> : <FontAwesomeIcon icon={faEdit} title='Update Item' className='plus-icon update-icon' onClick={addItems}/>
                         }
